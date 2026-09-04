@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">DjangoApp</div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/" class="active">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="about-section">
+
+            <h1>About Our Django Platform</h1>
+
+            <p>
+                Django is a high-level Python web framework that encourages
+                rapid development and clean, pragmatic design. Built by
+                experienced developers, it takes care of much of the hassle
+                of web development, so you can focus on writing your app
+                without needing to reinvent the wheel.
+            </p>
+
+        </section>
+    </main>
+
+</body>
+</html>
