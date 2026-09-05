@@ -1,14 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Welcome to Django</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <nav class="navbar">
+{% extends "layout.html" %}
+
+
+{% block title %}
+Home page
+{% endblock %}
+
+
+
+{% block content %}
+<nav class="navbar">
         <div class="logo">DjangoApp</div>
         <ul class="nav-links">
             <li><a href="/index/" class="active">Home</a></li>
@@ -16,13 +16,6 @@
             <li><a href="/contact/">Contact</a></li>
         </ul>
     </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Django</h1>
-            <p>Build powerful, clean, and scalable web applications fast.</p>
-            <a href="about.html" class="btn">Learn More</a>
-        </div>
-    </header>
-</body>
-</html>
+    <h1 style="color: white;">Welcome to the Home Page</h1>
+    <p style="color: white;">This is the content for the home page.</p>
+{% endblock %}
