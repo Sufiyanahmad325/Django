@@ -25,4 +25,6 @@ urlpatterns = [
     path('contact/' , views.contact , name= "contact"),
     path('myApp/', include('myApp.urls')), #maine yaha myApp nam k app ko yaha include kiya hai taki uske urls ko bhi access kar sakein 
 
+    #ye tailwind reload urls hai isko nnhi dene pe css reload nhi hoga jab bhi hamara code change hoga to ye url hamare browser ko reload kar dega
+    path("__reload__/", include("django_browser_reload.urls")), # yaha pe hamne django_browser_reload ka url include kiya hai taki hamara browser reload ho sakein jab bhi hamara code change ho
 ]
