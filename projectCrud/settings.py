@@ -42,8 +42,12 @@ INSTALLED_APPS = [
     'theme',
 ]
 
+
+
 TAILWIND_APP_NAME = 'theme' # yaha pe ham tailwind app ka name denge jo hamne istallation ke time diya tha
 INTERNAL_IPS = ['127.0.0.1'] # yaha pe port number denge jaha pe hamara server run ho raha hai
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

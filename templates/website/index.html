@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 
-
 {% block title %}
 Home page
 {% endblock %}
@@ -8,10 +7,10 @@ Home page
 
 
 {% block content %}
-<nav class="navbar">
+<nav class='bg-blue-900 w-full h-15 flex items-center justify-between p-4'>
         <div class="logo">DjangoApp</div>
-        <ul class="nav-links">
-            <li><a href="/index/" class="active">Home</a></li>
+        <ul class="flex justify-center gap-5">
+            <li><a href="/" class="active">Home</a></li>
             <li><a href="/about/">About</a></li>
             <li><a href="/contact/">Contact</a></li>
         </ul>
