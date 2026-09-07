@@ -129,6 +129,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+# Media url or media root is liye use hota hai q ki hamare project me ham images ko upload kar rahe hai to ye images ko store karne ke liye media folder ka use hota hai aur media url ka use hota hai q ki jab ham images ko access karna chahte hai to ham media url ka use karte hai taki hamare images ko access kar sake
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration

@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+from django.conf import settings # ye settings ko import karne ke liye use hota hai taki hamare project me media url and media root ko access kar sakein
+from django.conf.urls.static import static # ye static ko import karne ke liye use hota hai taki hamare project me media url and media root ko access kar sakein
 from . import views
 
 urlpatterns = [
@@ -27,4 +29,4 @@ urlpatterns = [
 
     #ye tailwind reload urls hai isko nnhi dene pe css reload nhi hoga jab bhi hamara code change hoga to ye url hamare browser ko reload kar dega
     path("__reload__/", include("django_browser_reload.urls")), # yaha pe hamne django_browser_reload ka url include kiya hai taki hamara browser reload ho sakein jab bhi hamara code change ho
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # ye static ka use hota hai taki hamare project me media url and media root ko access kar sake

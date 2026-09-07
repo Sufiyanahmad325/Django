@@ -5,4 +5,18 @@
 
 {% block content %}
     <h1>All chai available</h1>
+
+    {% for chai in chais %}
+    <div>
+        <h2>{{ chai.name }}</h2>
+        <img src="{{ chai.image.url }}" alt="{{ chai.name }}">
+        <p>{{ chai.date_added }}</p>
+        <p>{{ chai.type }}</p>
+    </div>
+{% endfor %}
+
+
 {% endblock %}
+
+
+
