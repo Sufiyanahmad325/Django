@@ -1,22 +1,70 @@
 {% extends "layout.html" %}
 
-
-{% block title %}All Chai{% endblock %}
-
-{% block content %}
-    <h1>All chai available</h1>
-
-    {% for chai in chais %}
-    <div>
-        <h2>{{ chai.name }}</h2>
-        <img src="{{ chai.image.url }}" alt="{{ chai.name }}">
-        <p>{{ chai.date_added }}</p>
-        <p>{{ chai.type }}</p>
-    </div>
-{% endfor %}
-
-
+{% block title %}
+All Chai
 {% endblock %}
 
+{% block content %}
+
+<div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- Heading -->
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-orange-500">
+            All Chai Available
+        </h1>
+
+        <p class="text-gray-500 mt-2">
+            Explore our delicious collection of chai
+        </p>
+    </div>
 
 
+    <!-- Chai Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {% for chai in chais %}
+
+        <div class="p-7 bg-blue-950 text-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+
+            <!-- Image -->
+            <img
+                src="{{ chai.image.url }}"
+                alt="{{ chai.name }}"
+                class="w-full h-56 object-cover"
+            >
+
+            <!-- Content -->
+            <div class="p-5">
+
+                <h2 class="text-2xl font-bold mb-2">
+                    {{ chai.name }}
+                </h2>
+
+                <p class="text-gray-300 text-sm mb-1">
+                    Added: {{ chai.date_added }}
+                </p>
+
+                <p class="text-gray-300 mb-4">
+                    Type: {{ chai.type }}
+                </p>
+
+                <a href="{% url 'chai_details' chai.id %}" class="inline-block"> # yeha pe hamne url tag ka use karke chai_detail view ko call kiya hai aur chai.id ko url me pass kiya hai taki ham usko views me access kar sakein
+                    <button
+                        class="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg font-semibold transition"
+                    >
+                        {{ chai.type }} - {{ chai.id }}
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
