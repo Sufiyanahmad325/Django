@@ -44,7 +44,7 @@ class chaiReview(models.Model):
 class Store(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    chair_verity = models.ManyToManyField(chaiVerity, related_name='stores')
+    chair_verities = models.ManyToManyField(chaiVerity, related_name='stores')
 
     def __str__(self):
         return self.name
