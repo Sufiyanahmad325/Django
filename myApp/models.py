@@ -39,6 +39,29 @@ class chaiReview(models.Model):
         return f'{self.user.username} review for {self.chai.name}'
     
 
+# Many to Many
+
+class Store(models.Model):
+    name = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    chair_verity = models.ManyToManyField(chaiVerity, related_name='stores')
+
+    def __str__(self):
+        return self.name
+
+
+
+# one to one
+
+class chaiCertificate(models.Model):
+    chai = models.OneToOneField(chaiVerity, on_delete=models.CASCADE, related_name='certificate')
+    certificate_number = models.CharField(max_length=100)
+    issue_date = models.DateField(default=timezone.now)
+    valid_until = models.DateField()
+    valid_until = models.DateField()
+
+    def __str__(self):
+        return f'Certificate for {self.name.chai}'
 
 
     
