@@ -61,7 +61,7 @@ class chaiCertificate(models.Model):
     valid_until = models.DateField()
 
     def __str__(self):
-        return f'Certificate for {self.name.chai}'
+        return f'Certificate for {self.chai.name}'
 
 
     
