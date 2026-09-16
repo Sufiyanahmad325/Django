@@ -18,7 +18,7 @@ class chaiVerityAdmin(admin.ModelAdmin): # yeha pe hamne chaiVerityAdmin class k
 class storeAdmin(admin.ModelAdmin): # yeha pe hamne storeAdmin class ko define kiya hai taki ham Store model ke liye admin panel me customizations kar sakein
     list_display = ('name', 'location') # yeha pe hamne list_display attribute ko define kiya hai taki ham Store model ke liye admin panel me list view me name aur location fields ko show kar sakein
     # search_fields = ('name', 'location') # yeha pe hamne search_fields attribute ko define kiya hai taki ham Store model ke liye admin panel me search functionality ko enable kar sakein aur name aur location fields ke basis pe search kar sakein
-    filter_horizontal = ('chair_verities',) # yeha pe hamne filter_horizontal attribute ko define kiya hai taki ham Store model ke liye admin panel me chair_verity field ke liye horizontal filter ko enable kar sakein
+    filter_horizontal = ('chai_verities',) # yeha pe hamne filter_horizontal attribute ko define kiya hai taki ham Store model ke liye admin panel me chai_verity field ke liye horizontal filter ko enable kar sakein
 
 
 class chaiCertificateAdmin(admin.ModelAdmin): # yeha pe hamne chaiCertificateAdmin class ko define kiya hai taki ham chaiCertificate model ke liye admin panel me customizations kar sakein
