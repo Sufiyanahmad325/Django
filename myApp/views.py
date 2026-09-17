@@ -16,3 +16,5 @@ def chai_detail(request , chai_id):
     chai = get_object_or_404(chaiVerity, id=chai_id) # yeha pe hamne chaiVerity model ka use karke chai_id ke basis pe chai ke object ko fetch kiya hai aur unko chai variable me store kiya hai
     return render(request, 'myApp/chai_details.html', {'chai': chai}) # yeha pe hamne render function ka use karke chai_detail.html template ko render kiya hai aur chai variable ko template me pass kiya hai taki ham template me chai ke object ko access kar sakein
 
+def chai_store_view(request):
+    return render(request, 'myApp/chai_stores.html')
