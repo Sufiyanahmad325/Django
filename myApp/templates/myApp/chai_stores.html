@@ -1,25 +1,60 @@
 {% extends "layout.html" %}
 
-
 {% block content %}
 
-test content for forms
+<div class="max-w-2xl mx-auto mt-10 p-6">
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Search store</button>
-</form>
+    <h1 class="text-3xl font-bold mb-6">
+        Find Chai Stores
+    </h1>
 
-{% if stores %}
-    <h2>Stores with selected chai veriety:</h2>
-    <ul>
-        {% for store in stores %}
-            <li>{{ store.name }}</li>
-        {% endfor %}
-    </ul>
-{% elif stores is not None %}
-    <p>No stores found for the selected chai veriety.</p>
-{% endif %}
+    <form action="" method="POST" class="mb-8">
+        {% comment %} isko dene jaruri hai nhi to data send nhi hoga or response nhi aayega  {% endcomment %}
+        {% csrf_token %}  
+
+        {{ form }}
+
+        <button
+            type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+        >
+            Search Store
+        </button>
+    </form>
+
+
+    {% if stores %}
+
+        <h2 class="text-2xl font-semibold mb-4">
+            Stores with selected chai variety:
+        </h2>
+
+        <ul class="space-y-3">
+
+            {% for store in stores %}
+
+                <li class="border p-4 rounded shadow">
+                    <p class="font-semibold">
+                        {{ store.name }}
+                    </p>
+
+                    <p class="text-gray-500">
+                        {{ store.location }}
+                    </p>
+                </li>
+
+            {% endfor %}
+
+        </ul>
+
+    {% elif stores is not None %}
+
+        <p class="text-red-500">
+            No stores found for the selected chai variety.
+        </p>
+
+    {% endif %}
+
+</div>
 
 {% endblock %}
