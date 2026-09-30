@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import chaiVerity # yeha pe hamne chaiVerity model ko import kiya hai taki ham usko views me use kar sakein
+from .models import chaiVerity , Store # yeha pe hamne chaiVerity model ko import kiya hai taki ham usko views me use kar sakein
 from django.shortcuts import get_object_or_404 # yeha pe hamne get_object_or_404 function ko import kiya hai taki ham usko views me use kar sakein
+from .forms import chaiVerityForm # yeha pe hamne chaiVerityForm form ko import kiya hai taki ham usko views me use kar sakein
 
 # Create your views here.
 
@@ -17,4 +18,12 @@ def chai_detail(request , chai_id):
     return render(request, 'myApp/chai_details.html', {'chai': chai}) # yeha pe hamne render function ka use karke chai_detail.html template ko render kiya hai aur chai variable ko template me pass kiya hai taki ham template me chai ke object ko access kar sakein
 
 def chai_store_view(request):
-    return render(request, 'myApp/chai_stores.html')
+    stores = None                                  
+    if request.method == 'POST':                   
+        form = chaiVerityForm(request.POST)          
+        if form.is_valid():
+           chai_veriety =  form.cleaned_data['chai_Verity']        
+           stores = Store.objects.filter(chai_verities=chai_veriety) 
+    else:
+         form = chaiVerityForm() 
+    return render(request, 'myApp/chai_stores.html' , {'stores': stores , "form": form}) 

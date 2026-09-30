@@ -5,4 +5,21 @@
 
 test content for forms
 
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Search store</button>
+</form>
+
+{% if stores %}
+    <h2>Stores with selected chai veriety:</h2>
+    <ul>
+        {% for store in stores %}
+            <li>{{ store.name }}</li>
+        {% endfor %}
+    </ul>
+{% elif stores is not None %}
+    <p>No stores found for the selected chai veriety.</p>
+{% endif %}
+
 {% endblock %}
